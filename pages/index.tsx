@@ -34,7 +34,8 @@ const preventDefault = (f) => (e) => {
 		return (
 			<div>
 				<Head>
-				<title>Rakhi Experience 2021</title>					
+				<title>Rakhi Experience 2021</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />					
 			</Head>
 			<div className="">				
 					<div className="outer">
@@ -43,17 +44,17 @@ const preventDefault = (f) => (e) => {
 							<form onSubmit={handleSubmit}>	
 							<div className="heading">Rakhi Experience 2021</div>								
 							<br></br>				
-								<div><input type="text" placeholder="Please enter your name" onChange={handleChange}></input></div>
+								<div><input type="text" placeholder="Please enter your name" autoFocus onChange={handleChange}></input></div>
 								<br />
 								<div className="radio-toolbar">
 								<input type="radio" value="eng" id="radioEnglish" name="language" onChange={handleRadioChange} checked={lang === 'eng'}/>
 								<label htmlFor="radioEnglish">English</label> 
-								<input type="radio" value="tam" id="radioTamil" name="language" onChange={handleRadioChange} checked={lang === 'tam'}/> 
-								<label htmlFor="radioTamil">Tamil</label>
 								<input type="radio" value="hin" id="radioHindi" name="language" onChange={handleRadioChange} checked={lang === 'hin'}/> 
-								<label htmlFor="radioHindi">Hindi</label>
+								<label htmlFor="radioHindi">हिंदी</label>
+								<input type="radio" value="tam" id="radioTamil" name="language" onChange={handleRadioChange} checked={lang === 'tam'}/> 
+								<label htmlFor="radioTamil">தமிழ்</label>								
 								<input type="radio" value="tel" id="radioTelugu" name="language" onChange={handleRadioChange} checked={lang === 'tel'}/> 
-								<label htmlFor="radioTelugu">Telugu</label>
+								<label htmlFor="radioTelugu">తెలుగు</label>
 							</div>	<br />
 								<div className="buttonClass"><button className="button">Let’s Begin</button></div>								
 							</form>	
