@@ -28,20 +28,18 @@ html {
   .radio-toolbar label {
     display: inline-block;
     background-color:transparent;
-    padding: 10px 10px;
+    padding: 8px 5px;
     font-family: sans-serif, Arial;
     font-size: 14px;
-    border: 1px solid #444;
-    border-radius: 2px;
-	color:white;
+    border-radius: 1px;
+	color:#227ce2;
 }
 .radio-toolbar input[type="radio"]:checked + label {
     background-color:white;
-    border-color: #4c4;
-	color:blue;
+    color:#227ce2;
 }
 .radio-toolbar input[type="radio"]:focus + label {
-    border: 2px dashed #444;
+    border: 2px dashed white;
 }
 input[type=text] {
 	width: 100%;
@@ -58,13 +56,40 @@ input[type=text] {
   .button {
 	background-color:white;
 	border: none;
-	color: blue;
-	padding: 16px 32px;
+	color: #227ce2;
+	padding: 10px 28px;
 	text-decoration: none;
 	margin: 4px 2px;
 	cursor: pointer;	
 	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
   }
+
+  .thankyou {
+	  background-image: url(../images/FB.jpg);
+	  text-align: center;
+	  font-size: 24px;
+	  color: white;
+	  padding-top: 20px;
+	  margin-top: 20px;
+	  margin-bottom: 20px;
+	  padding-bottom: 20px;
+  }
+
+  a:link {
+	  color: #227ce2;
+	  background-color: transparent;
+  }
+
+  .name {
+	text-align: center;
+	color: #227ce2;
+}
+.slogan {
+	text-align: center;
+	color: white;
+	padding-top: 10px;
+}
 
 .heading {
 	text-align: center;
@@ -83,14 +108,16 @@ input[type=text] {
 	left: 0;
 }
 
-.box {	
+.box, .boxEnd{	
 	font-size: 20px;
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
 	padding: 20px;
+	padding-top: 25px;
 	font-family: Arial, Helvetica, sans-serif;
-	color:green
+	color:white;
+	background-image:url(../images/FB.jpg);
   }
   .outer {
     display: table;
@@ -108,14 +135,28 @@ input[type=text] {
     margin-right: auto;
     position: relative;
     max-width: 440px;
-    width: calc(100% - 40px);
+    width: 440px;
     padding: 44px;
     margin-bottom: 28px;
-    background-image:url(../images/rakhibg.jpg);
+    background-image:url(../images/F1.jpg);
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     min-width: 320px;
     min-height: 338px;
     overflow: hidden
+}
+
+@media screen and (min-device-width : 381px) and (max-device-width : 400px) {
+	.inner {
+		background-image:url(../images/F2.jpg);
+		width:380px;
+	}	
+}
+@media screen and (min-device-width : 320px) and (max-device-width : 380px) {
+	.inner {
+		background-image:url(../images/F4.jpg);
+		min-height: 300px;
+		width:320px;
+	}	
 }
 
 @media (min-width : 1224px) {	
@@ -129,6 +170,18 @@ input[type=text] {
 		width: 95%;
 		top: 80%;
 		left: 5%;
+		background-image: none;
+	  }
+	  .boxEnd {	
+		font-size: 20px;
+		font-weight: bold;
+		width: 100%;
+		text-align: center;
+		padding: 20px;
+		padding-top: 25px;
+		font-family: Arial, Helvetica, sans-serif;
+		color:white;
+		background-image:url(../images/FB.jpg);
 	  }
 }
 

@@ -15,15 +15,16 @@ const sleep = (milliseconds) => {
 		const [cardInfo, setCardInfo] = useState({});
 		const [queryParam, setQueryParam] = useState({});			
 		const [GaveBlessing, setGaveBlessing] = useState(false);
+		const [WatchComplete, setWatchComplete] = useState(false);
 
-		var youTubeUrl = "https://www.youtube.com/watch?v=iplZGpP2VO0";
+		var youTubeUrl = "https://youtu.be/ecF3fKaSb0Q";
 		
 		if(router.query.lan == "tam")
-			youTubeUrl = "https://www.youtube.com/watch?v=vRiPWGono4s";
+			youTubeUrl = "https://youtu.be/vFhhN4JpqgY";
 		else if(router.query.lan == "hin")
-			youTubeUrl = "https://www.youtube.com/watch?v=IIbBI-BT9c4";
+			youTubeUrl = "https://youtu.be/TO2h9hqNVQ4";
 		else if(router.query.lan == "tel")
-			youTubeUrl = "https://www.youtube.com/watch?v=dUXk8Nc5qQ8";
+			youTubeUrl = "https://youtu.be/An-RPrXreOc";
 
 		useEffect(() => {
 			if (router.isReady) {
@@ -40,10 +41,8 @@ const sleep = (milliseconds) => {
 						const url = `https://script.google.com/macros/s/AKfycbxwVnTDPA1PS5UZ84632l42_Lh0e3BYmRXq-xInfg/exec?fullname=${queryParam["name"]}&lang=${queryParam["lan"]}`;
 						
 						const res = await fetch(`${url}`);
-						console.log(res)
 						const data = await res.json();
 						setCardInfo(data);
-						console.log(cardInfo);
 						return data;
 					}					
 					
@@ -54,31 +53,53 @@ const sleep = (milliseconds) => {
 			fetchData();
 		}, [queryParam]);
 		
-		const handleGaveBlessing = ({played}) => {
-			if(played >= 0.10 && !GaveBlessing) {			
-				setGaveBlessing(true)			
+		const handleGaveBlessing = ({played, playedSeconds}) => {
+			if(playedSeconds >= 140 && !GaveBlessing) {			
+				setGaveBlessing(true)							
+			}
+			if(playedSeconds >= 176) {			
+				setWatchComplete(true)							
 			}
 		}
 			
 		return (
 			<div>
 				<Head>
-				<title>Rakhi Experience</title>					
+				<title>Rakhi Experience 2021</title>					
 			</Head>
 			<div className="">
 					<div className="">
 						<div className="">
-								<div className="player-wrapper">
+							{
+								!WatchComplete && (
+									<div className="player-wrapper">
 										<ReactPlayer className="react-player"
 										url={youTubeUrl}
 										width="100%"
 										height="100%"
 										playing
-										onProgress={handleGaveBlessing}
+										onProgress={handleGaveBlessing}										
 										/>
 									</div>
+								)
+							}
+							{
+								WatchComplete && (
+									<div className="thankyou"><div>Thank you for joining the Australian Virtual Centre online Rakhi</div><br />
+									<div>Please join our meditation classes / workshops on</div>
+									<div><a href="https://brahmakumaris.org.au/new/virtual-centre">https://brahmakumaris.org.au/new/virtual-centre</a></div>
+									</div>
+								)
+							}
+								
 									<br></br>
-									<div className="box">{GaveBlessing ? cardInfo["disp_name"] + " " + cardInfo["slogan"] : ""} </div>
+									{
+										GaveBlessing && (
+											<div className= {WatchComplete ? "boxEnd" : "box"}>												
+										<div className="name">{cardInfo["disp_name"]}</div>
+										<div className="slogan">{cardInfo["slogan"]} </div></div>
+										)
+									}									
 								</div>
 						</div>
 					</div>
